@@ -1,0 +1,16 @@
+{
+    "name": "verdient/hyperf3-spreadsheet-request",
+    "type": "library",
+    "require": {
+        "ext-xlswriter": "^1.5",
+        "verdient/hyperf3-validation": "^1.0"
+    },
+    "require-dev": {
+        "viest/php-ext-xlswriter-ide-helper": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Verdient\\Hyperf3\\SpreadsheetRequest\\": "src"
+        }
+    }
+}
