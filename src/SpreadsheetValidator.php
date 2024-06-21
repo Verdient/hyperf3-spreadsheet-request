@@ -171,8 +171,8 @@ class SpreadsheetValidator extends Validator
      */
     protected function ensureFallbackMessages()
     {
-        $this->fallbackMessages['min_rows'] = $this->fallbackMessages['min_rows'] ?? 'The :attribute allows up to :max rows except the header row';
-        $this->fallbackMessages['max_rows'] =  $this->fallbackMessages['max_rows'] ?? 'The :attribute requires at least :min rows except header row';
+        $this->fallbackMessages['min_rows'] = $this->fallbackMessages['min_rows'] ?? 'The :attribute requires at least :min rows except header row';
+        $this->fallbackMessages['max_rows'] =  $this->fallbackMessages['max_rows'] ?? 'The :attribute allows up to :max rows except the header row';
         $this->fallbackMessages['distinct_header'] =  $this->fallbackMessages['distinct_header'] ?? 'The :attribute has duplicate headers: :headers';
         $this->fallbackMessages['missing_header'] = $this->fallbackMessages['missing_header'] ?? 'The :attribute missing headers: :headers';
         $this->fallbackMessages['unresolvable'] = $this->fallbackMessages['unresolvable'] ?? 'The :attribute can not be parsed';
@@ -354,9 +354,11 @@ class SpreadsheetValidator extends Validator
     {
         $data = [];
 
-        $lineNumber = 2;
+        $lineNumber = 1;
 
         while (($rowData = $excel->nextRow($this->columnTypes)) !== null) {
+
+            $lineNumber++;
 
             if ($lineNumber < $this->dataRowStartIndex) {
                 continue;
